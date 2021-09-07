@@ -1,15 +1,21 @@
 @mixin mq ($Screen) {
-    $threshold: 1080px;
-
+    $threshold-Tablet: 1015px;
+    $threshold-Mobile: 690px;
     @if $Screen == "Mobile"
     {
-        @media (max-width: #{$threshold}) {
+        @media (max-width: #{$threshold-Mobile}) {
             @content;
         }
     }
     @if $Screen == "Desktop"
     {
-        @media (min-width: #{$threshold}) {
+        @media (min-width: #{$threshold-Tablet}) {
+            @content;
+        }
+    }
+    @if $Screen == "Tablet"
+    {
+        @media (min-width: #{$threshold-Mobile}) and (max-width: #{$threshold-Tablet}) {
             @content;
         }
     }
